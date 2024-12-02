@@ -1,0 +1,51 @@
+YashodipD: Count the number of "r"s (upper case and lower case) in the text file
+
+GitHub Copilot: To count the number of "r"s (both upper case and lower case) in the text file, you can use the following JavaScript code:
+
+```javascript
+const fs = require
+
+('
+
+fs');
+
+// Read the content of the file
+fs.readFile('data.txt', 'utf8', (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+
+    // Count the number of 'r' and 'R'
+    const count = (data.match(/r/gi) || []).length;
+
+    console.log(`The number of 'r's in the text file is: ${count}`);
+});
+```
+
+This script reads the content of 
+
+data.txt
+
+, counts the occurrences of both 'r' and 'R' using a regular expression with the global and case-insensitive flags, and then prints the count. Save this code in 
+
+countR.js
+
+ and run it using Node.js:
+
+```sh
+node countR.js
+```
+
+YashodipD: reduce the number of lines in this code
+
+GitHub Copilot: Here is a more concise version of the code:
+
+```javascript
+const fs = require('fs');
+
+fs.readFile('data.txt', 'utf8', (err, data) => {
+    if (err) return console.error(err);
+    console.log(`The number of 'r's in the text file is: ${(data.match(/r/gi) || []).length}`);
+});
+```
